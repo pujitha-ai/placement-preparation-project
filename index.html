@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Preparation Tracker | Raghu Engineering College (A)</title>
+    <link rel="icon" href="logo.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #ffffff;
+            color: #111827;
+            font-family: Calibri, "Segoe UI", Candara, Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .slide {
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: clamp(18px, 3.2vw, 60px) clamp(18px, 5vw, 96px) clamp(30px, 4vw, 70px);
+        }
+
+        /* ---------- HEADER: logo + college name ---------- */
+        .header {
+            display: grid;
+            grid-template-columns: clamp(110px, 14vw, 270px) 1fr;
+            align-items: center;
+            gap: clamp(10px, 2vw, 40px);
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .college {
+            text-align: center;
+            font-family: Cambria, Georgia, "Times New Roman", serif;
+            font-weight: 700;
+            color: #0d2146;
+        }
+
+        .college h1 {
+            font-size: clamp(22px, 4.3vw, 82px);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .college .city {
+            font-size: clamp(16px, 2.7vw, 52px);
+            color: #1f3a70;
+            margin-top: .3em;
+        }
+
+        .college .degree {
+            font-size: clamp(15px, 2.5vw, 48px);
+            margin-top: .35em;
+        }
+
+        /* ---------- PROJECT TITLE BOX ---------- */
+        .title-box {
+            background: #0d1f3d;
+            color: #ffffff;
+            text-align: center;
+            margin: clamp(22px, 3.2vw, 60px) clamp(0px, 5.2vw, 100px) 0;
+            padding: clamp(22px, 3.4vw, 64px) clamp(14px, 2vw, 40px);
+        }
+
+        .title-box h2 {
+            font-family: Cambria, Georgia, "Times New Roman", serif;
+            font-size: clamp(20px, 3vw, 58px);
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .title-box h2 span { color: #c3cde6; }
+
+        .title-box p {
+            font-style: italic;
+            font-size: clamp(14px, 1.7vw, 32px);
+            margin-top: clamp(14px, 2.6vw, 50px);
+        }
+
+        /* ---------- HOD / GUIDE / MEMBERS ---------- */
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.15fr;
+            gap: clamp(18px, 3vw, 56px);
+            margin-top: clamp(22px, 3vw, 56px);
+        }
+
+        .info h3 {
+            color: #1f3a70;
+            font-size: clamp(17px, 1.5vw, 29px);
+            font-weight: 700;
+            margin-bottom: .55em;
+        }
+
+        .info .name {
+            font-size: clamp(18px, 1.8vw, 35px);
+            font-weight: 700;
+            color: #0b1b36;
+        }
+
+        .info .role {
+            font-size: clamp(16px, 1.5vw, 29px);
+            line-height: 1.5;
+            margin-top: .2em;
+        }
+
+        .info ol {
+            list-style: none;
+            counter-reset: m;
+            font-size: clamp(16px, 1.5vw, 29px);
+        }
+
+        .info li {
+            counter-increment: m;
+            display: flex;
+            gap: 1.3em;
+            line-height: 1.55;
+            margin-bottom: .15em;
+        }
+
+        .info li::before {
+            content: counter(m) ".";
+            min-width: 1.3em;
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: clamp(14px, 2vw, 36px);
+            margin-top: clamp(30px, 4vw, 76px);
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-width: clamp(190px, 18vw, 330px);
+            padding: clamp(13px, 1.3vw, 24px) clamp(26px, 2.8vw, 52px);
+            border-radius: 10px;
+            border: 2px solid #0d1f3d;
+            font-family: inherit;
+            font-size: clamp(16px, 1.45vw, 28px);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: .3px;
+            transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+        }
+
+        .action-btn svg {
+            width: 1.2em;
+            height: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .action-btn.primary {
+            background: #0d1f3d;
+            color: #ffffff;
+        }
+
+        .action-btn.secondary {
+            background: #ffffff;
+            color: #0d1f3d;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(13, 31, 61, .28);
+        }
+
+        .action-btn.secondary:hover {
+            background: #0d1f3d;
+            color: #ffffff;
+        }
+
+        .action-btn.primary:hover {
+            background: #1f3a70;
+            border-color: #1f3a70;
+        }
+
+        .action-btn:focus-visible {
+            outline: 3px solid #1f3a70;
+            outline-offset: 3px;
+        }
+
+        /* ---------- MOBILE ---------- */
+        @media (max-width: 760px) {
+            .header {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+            .logo { width: 150px; }
+            .title-box { margin-left: 0; margin-right: 0; }
+            .info { grid-template-columns: 1fr; }
+            .action-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<main class="slide">
+
+    <header class="header">
+        <img class="logo" src="logo.png" alt="Raghu Engineering College logo">
+        <div class="college">
+            <h1>Raghu Engineering College (A)</h1>
+            <div class="city">Visakhapatnam</div>
+            <div class="degree">Bachelor of Technology</div>
+        </div>
+    </header>
+
+    <section class="title-box">
+        <h2><span>Project Title:</span> Placement Preparation Tracker</h2>
+        <p>A web platform where seniors share real placement stories, so juniors can start preparing early</p>
+    </section>
+
+    <section class="info">
+        <div>
+            <h3>Head of the Department</h3>
+            <div class="name">Dr. G. Sridevi</div>
+            <div class="role">HOD, CSE (AI &amp; ML)</div>
+        </div>
+
+        <div>
+            <h3>Project Guide</h3>
+            <div class="name">Mr. K. Sandeep Kumar</div>
+            <div class="role">Assistant Professor,<br>Department of CSE (AI &amp; ML)</div>
+        </div>
+
+        <div>
+            <h3>Project Members</h3>
+            <ol>
+                <li><span>Pujitha Devara&nbsp; (24981A4276)</span></li>
+                <li><span>Leela Christina&nbsp; (24981A42A2)</span></li>
+                <li><span>Caleb John&nbsp; (24981A4245)</span></li>
+                <li><span>Prem Kumar&nbsp; (24981A429V)</span></li>
+                <li><span>Jay Ganesh&nbsp; (24981A428Q)</span></li>
+            </ol>
+        </div>
+    </section>
+
+    <nav class="actions" aria-label="Project links">
+        <a class="action-btn secondary" href="Abstract.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/>
+            </svg>
+            Abstract
+        </a>
+
+        <a class="action-btn primary" href="website.html" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/>
+            </svg>
+            Website Link
+        </a>
+    </nav>
+
+</main>
+
+</body>
+</html>
