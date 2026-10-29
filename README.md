@@ -1,0 +1,2 @@
+# placement preparation project
+**Placement Preparation Tracker** is a web-based platform designed to help students prepare for campus placements by learning from seniors' placement experiences. It provides insights into company-specific interview processes, required skills, preparation strategies, placement experiences, and career roadmaps. The platform helps students understand placement requirements and prepare more effectively for their future careers.
